@@ -25,9 +25,9 @@ public class AfterReturningAdvice {
 		Object[] args = jp.getArgs();
 		System.out.println("After Rturning Advice - 비즈니스 로직 수행 후 동작");
 		System.out.println("메소드 이름 : "+method+" 아규먼트 정보 : "+args[0].toString());
-		List<BoardVO> lists = (List<BoardVO>)returnObj;
-		for(BoardVO vo : lists) {
-			System.out.println(vo.toString());
-		}
+//		List<BoardVO> lists = (List<BoardVO>)returnObj;
+//		for(BoardVO vo : lists) {
+//			System.out.println(vo.toString());
+//		}
 	}
 }

@@ -21,7 +21,7 @@ public class UserDAO implements UserService{
 	String insert =	"insert into users values(?,?,?,?)";
 	String update = "update users set id=?, password=?, name =?, role=?";
 	String delete ="delete users where id=?, password=?";
-	String getUser = "select * from user where id=? or name = ?";
+	String getUser = "select * from users where id=? and password = ?";
 	String getUserList = "select * from users order by name desc";
 
 	@Override
@@ -77,26 +77,28 @@ public class UserDAO implements UserService{
 
 	@Override
 	public UserVO getUser(UserVO vo) {
+	
 		UserVO userVo = new UserVO();
 		try {
 			conn = JDBCUtil.getConnection();
 			stmt = conn.prepareStatement(getUser);
 			stmt.setString(1, vo.getId());
-			stmt.setString(2, vo.getName());
+			stmt.setString(2, vo.getPassword());
 			rs=stmt.executeQuery();		
-			if(rs != null) {
+		
+			while(rs.next()) {
 				userVo.setId(rs.getString("id"));
 				userVo.setPassword(rs.getString("password"));
 				userVo.setName(rs.getString("name"));
 				userVo.setRole(rs.getString("role"));
-			}else {
-				userVo = null;
+				
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
 			JDBCUtil.close(rs,stmt,conn);
 		}
+
 		return userVo;
 	}
 

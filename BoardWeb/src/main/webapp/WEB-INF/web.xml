@@ -24,14 +24,16 @@
 	</session-config>
 	
 	<!--서블릿-->
-	<servlet-class>
-		<servlet-name>hello</servlet-name>
-		<servlet-class>com.spring.book.hello_test.HelloServlet</servlet-class>
-	</servlet-class>
+	<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>com.springbook.view.controller.DispatcherServlet</servlet-class>
+	</servlet>
+	
 	<servlet-mapping>
-		<servlet-name>hello</servlet-name>
-		<url-pattern>/hello</url-pattern>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
+
 
 
 </web-app>

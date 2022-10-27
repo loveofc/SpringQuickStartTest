@@ -31,6 +31,7 @@ public class BoardDAOSpring{
 	private final String Board_get = "select * from board where seq=?";
 	private final String Board_list = "select * from board order by seq desc";
 	
+	
 		
 	//글 등록
 	public void insertBoard(BoardVO vo) {

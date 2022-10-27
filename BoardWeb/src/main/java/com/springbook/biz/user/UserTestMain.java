@@ -14,19 +14,24 @@ public class UserTestMain {
 		
 		UserService userService =(UserServiceImpl)ctx.getBean("userService");
 		
-		for(int i=6; i<=7;i++) {
-			UserVO vo = new UserVO();
-			vo.setId("user"+i);
-			vo.setPassword("1234"+i);
-			vo.setName("name"+i);
-			vo.setRole("회원"+i);
-			//입력 테스트
-			userService.insertUser(vo);
-			System.out.println("입력완료"+i);
-		}
-		
+//		for(int i=6; i<=7;i++) {
+//			UserVO vo = new UserVO();
+//			vo.setId("user"+i);
+//			vo.setPassword("1234"+i);
+//			vo.setName("name"+i);
+//			vo.setRole("회원"+i);
+//			//입력 테스트
+//			userService.insertUser(vo);
+//			System.out.println("입력완료"+i);
+//		}
+		UserVO vo = new UserVO();
+		vo.setId("user123");
+		vo.setPassword("1234");
+		vo.setName("name");
+		vo.setRole("회원");
+		System.out.println(userService.getUser(vo));
 		//출력테스트
-		List<UserVO> lists = userService.getUserList(null);
+		List<UserVO> lists = userService.getUserList(vo);
 		for(UserVO v: lists) {
 			System.out.println(v.toString());
 		}

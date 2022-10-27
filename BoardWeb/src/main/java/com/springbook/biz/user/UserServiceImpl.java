@@ -3,6 +3,7 @@ package com.springbook.biz.user;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import com.springbook.biz.user.impl.UserService;
 
@@ -10,6 +11,7 @@ import com.springbook.biz.user.impl.UserService;
 public class UserServiceImpl implements UserService{
 	
 	@Autowired
+	@Qualifier("userDAO")
 	UserService userDao;
 
 	public void setUserDao(UserService userDao) {
